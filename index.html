@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atom Time Machine AR</title>
+  <meta name="description" content="A Grade 8 web-based AR timeline of historical atomic models." />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Grade 8 Science · Web AR</p>
+      <h1>Atom Time Machine</h1>
+      <p>Explore how scientists changed their ideas about the atom—from a solid sphere to a quantum cloud. Tap a model, read the quick story, then launch it in AR.</p>
+    </div>
+    <div class="hero-card">
+      <span class="atom-icon">⚛</span>
+      <strong>5 Atomic Models</strong>
+      <small>Read the story, compare the ideas, and explore each model in 3D or AR.</small>
+    </div>
+  </header>
+
+  <main>
+    <section class="timeline" aria-label="Atomic model selector">
+      <button class="model-tab active" data-id="dalton"><span>1803</span>Solid Sphere</button>
+      <button class="model-tab" data-id="thomson"><span>1904</span>Plum Pudding</button>
+      <button class="model-tab" data-id="rutherford"><span>1911</span>Nuclear</button>
+      <button class="model-tab" data-id="bohr"><span>1913</span>Planetary</button>
+      <button class="model-tab" data-id="schrodinger"><span>1926</span>Quantum</button>
+    </section>
+
+    <section class="learning-card">
+      <div class="info-panel">
+        <p class="model-label" id="modelScientist">John Dalton · 1803</p>
+        <h2 id="modelTitle">Solid Sphere Model</h2>
+        <p id="modelDescription">Dalton described atoms as tiny, solid, indivisible spheres. He proposed that atoms of the same element are identical and that compounds are made from combinations of atoms.</p>
+        <div class="quick-facts">
+          <div><strong>Strength</strong><p id="modelStrength">Helped explain that each element has its own type of atom.</p></div>
+          <div><strong>Limitation</strong><p id="modelLimit">Atoms are not indivisible; they contain smaller particles.</p></div>
+        </div>
+        <div class="student-task">
+          <strong>Think about it:</strong>
+          <p id="modelQuestion">Why was Dalton's model useful even though it was not complete?</p>
+        </div>
+      </div>
+
+      <div class="viewer-panel">
+        <model-viewer id="atomViewer"
+          src="models/dalton-solid-sphere.glb"
+          ios-src="models/dalton-solid-sphere.usdz"
+          alt="3D model of Dalton's solid sphere atom model"
+          camera-controls
+          auto-rotate
+          ar
+          ar-modes="scene-viewer quick-look webxr"
+          shadow-intensity="1"
+          exposure="1"
+          poster=""
+          reveal="auto">
+          <button id="arButton" class="ar-button" type="button">View this atom in AR</button>
+          <div class="progress" slot="progress-bar"><div class="bar"></div></div>
+        </model-viewer>
+        <p class="viewer-note" id="viewerNote">Tip: Use one finger to rotate and two fingers to zoom before opening AR.</p>
+      </div>
+    </section>
+
+    <section class="classroom-section">
+      <h2>Mini Activity</h2>
+      <div class="activity-grid">
+        <article><strong>1. Observe</strong><p>Open each atom model and describe what you can see.</p></article>
+        <article><strong>2. Compare</strong><p>What changed from Dalton’s model to Schrödinger’s model?</p></article>
+        <article><strong>3. Explain</strong><p>Which model best shows where electrons are likely found?</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made for Grade 8 Science · Historical Development of the Atomic Model</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
